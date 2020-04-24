@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class electronicsShop {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int b, n, m, i, j;
+        boolean check = true;
+        b = in.nextInt();
+        n = in.nextInt();
+        m = in.nextInt();
+        int[] keyBoard = new int[n];
+        int[] drives = new int[m];
+        for (i = 0; i < n; i++) {
+            keyBoard[i] = in.nextInt();
+        }
+        for (i = 0; i < m; i++) {
+            drives[i] = in.nextInt();
+        }
+        keyBoard = descendingOrderArray(keyBoard);
+        drives = descendingOrderArray(drives);
+        
+
+    }
+
+    static int[] descendingOrderArray(int[] a) {
+        int i, j, temp, length = a.length;
+
+        for (i = 0; i < length - 1; i++) {
+            for (j = i; j < length; j++) {
+                if (a[i] < a[j]) {
+                    temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+        return a;
+
+    }
+}
